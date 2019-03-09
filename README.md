@@ -1,4 +1,4 @@
-# Clean Architecture on Android. (EUROCUP 2016) [![Build Status](https://travis-ci.org/erikcaffrey/Clean-Architecture-Android.svg?branch=master)](https://travis-ci.org/erikcaffrey/Clean-Architecture-Android)
+# Clean Architecture on Android.  [![Build Status](https://travis-ci.org/erikcaffrey/Clean-Architecture-Android.svg?branch=master)](https://travis-ci.org/erikcaffrey/Clean-Architecture-Android)
 
 Example Android Clean Architecture used to explain how to use this architecture (rules) in our android applications.
 This example was created to support an article explanation that I have written about how to architect android application using the Uncle Bob's clean architecture. [Aplicando Clean Architecture en Android][1] (spanish).
@@ -46,12 +46,12 @@ Feel free to report or add any useful feature, I will be glad to improve it with
 Developed By
 ------------
 
-* Erik Jhordan Rey  - <erikjhordan.rey@gmail.com>
+* Waheed Nazir  - <erikjhordan.rey@gmail.com>
 
 License
 -------
 
-    Copyright 2016 Erik Jhordan Rey
+    Copyright 2019 Waheed Nazir
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
