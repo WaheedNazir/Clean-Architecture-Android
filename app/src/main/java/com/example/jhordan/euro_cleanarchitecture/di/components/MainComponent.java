@@ -1,22 +1,35 @@
 package com.example.jhordan.euro_cleanarchitecture.di.components;
 
-import android.content.Context;
+import android.app.Application;
 
-import com.example.jhordan.euro_cleanarchitecture.di.modules.MainModule;
-import com.example.jhordan.euro_cleanarchitecture.view.activity.TeamDetailsActivity;
-import com.example.jhordan.euro_cleanarchitecture.view.activity.TeamsActivity;
+import com.example.jhordan.euro_cleanarchitecture.EuroApplication;
+import com.example.jhordan.euro_cleanarchitecture.di.modules.ActivityModule;
+import com.example.jhordan.euro_cleanarchitecture.di.modules.AppModule;
+import com.example.jhordan.euro_cleanarchitecture.di.modules.FragmentModule;
 
 import javax.inject.Singleton;
 
+import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.support.AndroidSupportInjectionModule;
+
+/**
+ * Created by Waheed
+ */
 
 @Singleton
-@Component(modules = MainModule.class)
+@Component(modules = {AndroidSupportInjectionModule.class, AppModule.class, FragmentModule.class, ActivityModule.class})
 public interface MainComponent {
 
-    void inject(TeamsActivity activity);
+    @Component.Builder
+    interface Builder {
 
-    void inject(TeamDetailsActivity activity);
+        @BindsInstance
+        Builder application(Application application);
 
-    Context context();
+        MainComponent build();
+    }
+
+    void inject(EuroApplication app);
+
 }

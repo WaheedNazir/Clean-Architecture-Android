@@ -2,6 +2,7 @@ package com.example.jhordan.euro_cleanarchitecture.view.activity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -9,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.example.jhordan.euro_cleanarchitecture.EuroApplication;
 import com.example.jhordan.euro_cleanarchitecture.R;
 import com.example.jhordan.euro_cleanarchitecture.view.adapter.TeamsAdapter;
 import com.example.jhordan.euro_cleanarchitecture.view.base.view.BaseActivity;
@@ -21,8 +21,33 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import dagger.android.AndroidInjection;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
 
-public class TeamsActivity extends BaseActivity implements TeamsPresenter.View {
+public class TeamsActivity extends BaseActivity implements TeamsPresenter.View, HasSupportFragmentInjector {
+
+
+    /**
+     *
+     */
+    @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
+
+    /**
+     *
+     */
+    @Override
+    public DispatchingAndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
+    }
+
+    /**
+     *
+     */
+    private void initializeDagger() {
+        AndroidInjection.inject(this);
+    }
 
     @Inject
     TeamsPresenter presenter;
@@ -109,11 +134,6 @@ public class TeamsActivity extends BaseActivity implements TeamsPresenter.View {
                 android.support.v7.widget.DividerItemDecoration.VERTICAL));
         teamList.setHasFixedSize(true);
         teamList.setAdapter(adapter);
-    }
-
-    private void initializeDagger() {
-        EuroApplication app = (EuroApplication) getApplication();
-        app.getMainComponent().inject(this);
     }
 
     private void initializePresenter() {

@@ -1,26 +1,36 @@
 package com.example.jhordan.euro_cleanarchitecture;
 
+import android.app.Activity;
 import android.app.Application;
 
 import com.example.jhordan.euro_cleanarchitecture.di.components.DaggerMainComponent;
-import com.example.jhordan.euro_cleanarchitecture.di.components.MainComponent;
-import com.example.jhordan.euro_cleanarchitecture.di.modules.MainModule;
 
-public class EuroApplication extends Application {
+import javax.inject.Inject;
 
-    private MainComponent mainComponent;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class EuroApplication extends Application implements HasActivityInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Activity> dispatchingAndroidInjector;
+
+    @Override
+    public DispatchingAndroidInjector<Activity> activityInjector() {
+        return dispatchingAndroidInjector;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        initializeInjector();
+        initDagger();
     }
 
-    private void initializeInjector() {
-        mainComponent = DaggerMainComponent.builder().mainModule(new MainModule(this)).build();
+    /**
+     * Initialize Dagger
+     */
+    private void initDagger() {
+        DaggerMainComponent.builder().application(this).build().inject(this);
     }
 
-    public MainComponent getMainComponent() {
-        return mainComponent;
-    }
 }

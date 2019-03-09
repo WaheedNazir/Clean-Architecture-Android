@@ -1,8 +1,8 @@
 package com.example.jhordan.euro_cleanarchitecture.di.modules;
 
+import android.app.Application;
 import android.content.Context;
 
-import com.example.jhordan.euro_cleanarchitecture.EuroApplication;
 import com.example.jhordan.euro_cleanarchitecture.data.repository.Repository;
 import com.example.jhordan.euro_cleanarchitecture.data.repository.TeamsRepository;
 
@@ -16,18 +16,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 @Module
-public class MainModule {
-
-    private final EuroApplication euroApplication;
-
-    public MainModule(EuroApplication euroApplication) {
-        this.euroApplication = euroApplication;
-    }
+public class AppModule {
 
     @Provides
     @Singleton
-    Context provideApplicationContext() {
-        return euroApplication;
+    Context provideContext(Application application) {
+        return application.getApplicationContext();
     }
 
     @Provides

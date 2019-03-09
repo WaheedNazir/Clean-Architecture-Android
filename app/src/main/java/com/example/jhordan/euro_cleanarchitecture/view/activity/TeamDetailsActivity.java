@@ -3,12 +3,12 @@ package com.example.jhordan.euro_cleanarchitecture.view.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.jhordan.euro_cleanarchitecture.EuroApplication;
 import com.example.jhordan.euro_cleanarchitecture.R;
 import com.example.jhordan.euro_cleanarchitecture.view.base.view.BaseActivity;
 import com.example.jhordan.euro_cleanarchitecture.view.presenter.TeamDetailPresenter;
@@ -19,8 +19,34 @@ import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import dagger.android.AndroidInjection;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.support.HasSupportFragmentInjector;
 
-public class TeamDetailsActivity extends BaseActivity implements TeamDetailPresenter.View {
+public class TeamDetailsActivity extends BaseActivity implements TeamDetailPresenter.View, HasSupportFragmentInjector {
+
+
+    /**
+     *
+     */
+    @Inject
+    DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
+
+    /**
+     *
+     */
+    @Override
+    public DispatchingAndroidInjector<Fragment> supportFragmentInjector() {
+        return dispatchingAndroidInjector;
+    }
+
+    /**
+     *
+     */
+    private void initializeDagger() {
+        AndroidInjection.inject(this);
+    }
+
 
     private final static String TEAM_FLAG_KEY = "team_flag_key";
     @Inject
@@ -72,10 +98,6 @@ public class TeamDetailsActivity extends BaseActivity implements TeamDetailPrese
         return R.layout.activity_team_detail;
     }
 
-    private void initializeDagger() {
-        EuroApplication euroApplication = (EuroApplication) getApplication();
-        euroApplication.getMainComponent().inject(this);
-    }
 
     private void initializePresenter() {
         presenter.setView(this);
