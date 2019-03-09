@@ -1,63 +1,62 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 27
-  buildToolsVersion '27.0.3'
+    compileSdkVersion 28
 
-  defaultConfig {
-    applicationId "com.example.jhordan.euro_cleanarchitecture"
-    minSdkVersion 17
-    targetSdkVersion 27
-    versionCode 1
-    versionName "1.0"
-    multiDexEnabled true
-  }
-
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    defaultConfig {
+        applicationId "com.example.jhordan.euro_cleanarchitecture"
+        minSdkVersion 17
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
     }
-  }
 
-  packagingOptions {
-    exclude 'META-INF/services/javax.annotation.processing.Processor'
-    exclude 'META-INF/LICENSE'
-    exclude 'META-INF/LICENSE.txt'
-  }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
 
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+    }
 
-  lintOptions {
-    abortOnError false
-  }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
 
-  implementation supportDependencies.appCompat
-  implementation supportDependencies.design
-  implementation supportDependencies.supportAnnotation
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.design
+    implementation supportDependencies.supportAnnotation
 
-  implementation             daggerDependencies.dagger
-  annotationProcessor daggerDependencies.daggerCompiler
+    implementation daggerDependencies.dagger
+    annotationProcessor daggerDependencies.daggerCompiler
 
-  implementation rxDependencies.rxJava
-  implementation rxDependencies.rxAndroid
+    implementation rxDependencies.rxJava
+    implementation rxDependencies.rxAndroid
 
-  implementation butterknife
-  annotationProcessor butterknifeProcessor
+    implementation butterknife
+    annotationProcessor butterknifeProcessor
 
-  implementation circleImageView
-  implementation picasso
-  implementation gson
+    implementation circleImageView
+    implementation picasso
+    implementation gson
 
-  testImplementation testingDependencies.junit
-  testImplementation testingDependencies.mockito
-  testImplementation testingDependencies.hamcrest
-  testImplementation testingDependencies.robolectric
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.mockito
+    testImplementation testingDependencies.hamcrest
+    testImplementation testingDependencies.robolectric
 }
 
