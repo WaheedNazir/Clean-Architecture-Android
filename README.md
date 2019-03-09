@@ -1,7 +1,7 @@
 # Clean Architecture on Android.  [![Build Status](https://travis-ci.org/erikcaffrey/Clean-Architecture-Android.svg?branch=master)](https://travis-ci.org/erikcaffrey/Clean-Architecture-Android)
 
 Example Android Clean Architecture used to explain how to use this architecture (rules) in our android applications.
-This example was created to support an article explanation that I have written about how to architect android application using the Uncle Bob's clean architecture. [Aplicando Clean Architecture en Android][1] (spanish).
+This example was created to support an article explanation that I have written about how to architect android application using the Uncle Bob's clean architecture.
 
 ![](./art/euro.png)
 
@@ -30,12 +30,17 @@ Libraries used on the sample project
 
 ## Inspiring 
 
-I created my own implementation of Clean Architecture and I want to thank you how much I've learned from these magnificent developers.
+This repo is forked from Erik Jhordan Rey and I want to thank you how much I've learned from this magnificent developers.
 
 * [Uncle Bob - The Clean Architecture](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-* [Karumi Team - Rosie is an Android framework to create applications following the principles of Clean Architecture](https://github.com/Karumi/Rosie)
-* [Fernando Cejas - Clean Architecture Sample](https://github.com/android10/Android-CleanArchitecture)
+* [Forked from, Erik Jhordan Rey's repo](https://github.com/erikcaffrey/Clean-Architecture-Android)
 
+
+Credit
+------------
+
+* This sample is developed by Erik Jhordan Rey. 
+* Code is migrated to Dagger 2.
 
 Do you want to contribute?
 --------------------------
@@ -46,7 +51,8 @@ Feel free to report or add any useful feature, I will be glad to improve it with
 Developed By
 ------------
 
-* Waheed Nazir  - <erikjhordan.rey@gmail.com>
+* Erik Jhordan Rey  - <erikjhordan.rey@gmail.com>
+* Updated by Waheed Nazir -<mwaheednazir8@gmail.com>
 
 License
 -------
